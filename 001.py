@@ -31,15 +31,17 @@ def e001b():
 # 3 + 6 + 9 + 12 + ... + 999 = 3 * Sum_{k=1}^{floor(999/3)} =
 # = 3 * (999/3) * (999/3 + 1) / 2
 # same for 5 + 10 + 15 + ... + 995 = 5 * (999/5) * (999/5 + 1) / 2
-# now we took k*3*5 two times, so we have to take these numbers into account too:
+# now we took k*3*5 two times,
+# so we have to take these numbers into account too:
 # 15 + 30 + ... + 990 =  15 * (999/15) * (999/15 + 1) / 2
 def e001c():
-    return (3 * (999 // 3) * (999 // 3 + 1) + 5 * (999 // 5) * (999 // 5 + 1) - 15 * (999 // 15) * (999 // 15 + 1)) // 2
+    return (3*(999//3)*(999//3+1) + 5*(999//5)*(999//5+1)
+            - 15*(999//15)*(999//15+1)) // 2
 
 
 # builds the same expression as in e001c using lambda and the mapfunction
 def e001d():
-    return sum(map(lambda x: x * (999 // x) * (999 // x + 1), [3, 5, -15])) // 2
+    return sum(map(lambda x: x*(999//x)*(999//x+1), [3, 5, -15])) // 2
 
 
 print(e001a())

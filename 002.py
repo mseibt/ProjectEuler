@@ -12,3 +12,30 @@ exceed four million.
 """
 
 
+# Building up the Fibonacci sequence. If the element is divisible by 2
+# add it to the sum
+def e002a():
+    s, i, j = 0, 1, 2
+    while j < 4000000:
+        if j % 2 == 0:
+            s += j
+        i, j = j, j + i
+    return s
+
+
+# if number is divisible by 2, the last bit is 0
+# using the relationship to the golden ratio.
+def e002b():
+    return sum(filter(
+        lambda x: not x & 1,
+        [round((((1 + 5**0.5) / 2)**x - (1 - ((1 + 5**0.5) / 2))**x) / 5**0.5)
+         for x in range(34)])
+    )
+
+# You also can exploit the fact, that every third element of the Fibonacci
+# sequence is divisible by 2. See the Project Euler overview for more
+# information.
+
+# In the Project Euler Forum (page 5) there are even some O(1) solutions!
+
+print(e002a())
