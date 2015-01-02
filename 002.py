@@ -11,6 +11,8 @@ Find the sum of all the even-valued terms in the sequence which do not
 exceed four million.
 """
 
+from Euler import fibonacci_n, fibonacci_limit
+
 
 # Building up the Fibonacci sequence. If the element is divisible by 2
 # add it to the sum
@@ -24,13 +26,23 @@ def e002a():
 
 
 # if number is divisible by 2, the last bit is 0
-# using the relationship to the golden ratio.
+# using the relationship to the golden ratio for generating the nth
+# Fibonaccinumber. Limit to estimation via golden ratio relationship.
 def e002b():
     return sum(filter(
         lambda x: not x & 1,
-        [round((((1 + 5**0.5) / 2)**x - (1 - ((1 + 5**0.5) / 2))**x) / 5**0.5)
-         for x in range(34)])
+        [fibonacci_n(x) for x in range(34)])
     )
+
+
+# Since the whole sequence is used, its more efficient to
+# use the Fibonacci sequence generator
+def e002c():
+    return sum(filter(
+        lambda x: not x & 1,
+        fibonacci_limit(4000000)
+    ))
+
 
 # You also can exploit the fact, that every third element of the Fibonacci
 # sequence is divisible by 2. See the Project Euler overview for more
@@ -38,4 +50,4 @@ def e002b():
 
 # In the Project Euler Forum (page 5) there are even some O(1) solutions!
 
-print(e002a())
+print(e002b())
