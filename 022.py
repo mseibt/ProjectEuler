@@ -21,5 +21,5 @@ x = sorted(
 )
 # get the value of the character with ord() and multiply it with the position
 # of the word. Sum up all characters in a word, then sum up all words.
-# enumerate(x) would be more pythonic, but this is shorter
+# enumerate(x) would be more pythonic, but this is shorter (PEP8)
 print(sum([sum([(j+1)*(ord(i)-64) for i in x[j]]) for j in range(len(x))]))
