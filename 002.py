@@ -48,6 +48,7 @@ def e002c():
 # sequence is divisible by 2. See the Project Euler overview for more
 # information.
 
+# TODO:
 # In the Project Euler Forum (page 5) there are even some O(1) solutions!
 
 print(e002b())

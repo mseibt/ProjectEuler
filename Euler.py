@@ -5,6 +5,18 @@ Often used methods for Project Euler Problems
 from __future__ import division
 import math
 
+# The often used module operator.mul
+# can be rewritten as a lambda function:
+# lambda x, y: x*y
+
+
+def sum_digits(x):
+    s = 0
+    while x > 0:
+        s += x % 10
+        x //= 10
+    return s
+
 
 def fibonacci_limit(limit):
     a, b = 1, 2

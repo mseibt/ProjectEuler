@@ -10,8 +10,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 # Generate all products of 3-digit-numbers and add the element to the list
 # if it is a palindromic number. Eventually take the maximum of the list.
-# instead of using str() you could use math.ceil and math.log to check
-# whether its a palindromic number or not.
+# If you don't like the str() use  x%10 and x/10 to get access to every digit
+# Check Euler.py for more information. (sum_digits())
 # For the optimization in the range generators read the Project Euler
 # Overview for the Problem.
 print(
