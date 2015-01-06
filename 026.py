@@ -22,4 +22,19 @@ Find the value of d < 1000 for which ^1/[d] contains the longest recurring
 cycle in its decimal fraction part.
 """
 
+import itertools
 
+
+def recur_len(n):
+    r = 10
+    digits = {}
+    for i in itertools.count(0):
+        if r == 0:
+            return 0
+        elif r in digits:
+            return i-digits[r]
+        digits[r] = i
+        r = 10*(r % n)
+
+l, i = max((recur_len(i), i) for i in range(2, 1000))
+print(i)
