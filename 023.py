@@ -23,4 +23,24 @@ Find the sum of all the positive integers which cannot be written as the
 sum of two abundant numbers.
 """
 
+from __future__ import division
+import math
 
+
+# new limit with http://mathworld.wolfram.com/AbundantNumber.html
+limit = 20161
+abundants = []
+for i in range(2, limit+1):
+    s = 1
+    # Could be written in a listcomprehension
+    # however, it would require additional memory
+    for j in range(2, int(math.sqrt(i))+1):
+        if i % j == 0:
+            s += j + i//j
+    if int(math.sqrt(i)) == math.sqrt(i):
+        s -= int(math.sqrt(i))
+    if s > i:
+        abundants.append(i)
+
+abundants = set(abundants)
+print(sum(i for i in range(limit+1) if not any(i-a in abundants for a in abundants)))
