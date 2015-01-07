@@ -5,9 +5,9 @@ Often used methods for Project Euler Problems
 from __future__ import division
 import math
 
-# The often used module operator.mul
-# can be rewritten as a lambda function:
-# lambda x, y: x*y
+# The often used function operator.mul
+# within reduce can be rewritten using
+# the lambda function: lambda x, y: x*y
 
 
 def sum_digits(x):
