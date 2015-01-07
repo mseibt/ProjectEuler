@@ -36,6 +36,17 @@ def fibonacci_n(x):
     return round((((1 + 5**0.5) / 2)**x - (1 - ((1 + 5**0.5) / 2))**x) / 5**0.5)
 
 
+def generate_circulars(number):
+    length = math.ceil(math.log10(number))
+    circulars = []
+    for i in range(length-1):
+        mod = number % 10
+        number //= 10
+        number += mod*10**(length-1)
+        circulars.append(number)
+    return circulars
+
+
 def prime_sieve(n):
     n += 1
     sieve = [False for i in range(n+1)]
