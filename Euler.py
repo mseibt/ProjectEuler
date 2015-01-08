@@ -18,6 +18,19 @@ def sum_digits(x):
     return s
 
 
+def faculty_list(length):
+    f = [1, 1]
+    if length == 0:
+        return []
+    if length == 1:
+        return [1]
+    if length == 2:
+        return f
+    for i in range(2, length):
+        f.append(f[i-1]*i)
+    return f
+
+
 def fibonacci_limit(limit):
     a, b = 1, 2
     while a < limit:
@@ -47,6 +60,10 @@ def generate_circulars(number):
     return circulars
 
 
+def palindromic_number(n):
+    return reverse_number(n) == n
+
+
 def prime_sieve(n):
     n += 1
     sieve = [False for i in range(n+1)]
@@ -63,3 +80,11 @@ def prime_sieve(n):
 
 def prime_numbers(limit):
     return [i for i, n in enumerate(prime_sieve(limit)) if n is False]
+
+
+def reverse_number(n):
+    rev = 0
+    while n > 0:
+        rev = 10*rev + n % 10
+        n //= 10
+    return rev
