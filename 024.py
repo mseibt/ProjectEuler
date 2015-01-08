@@ -15,8 +15,10 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3,
 
 from __future__ import division
 
+from Euler import faculty_list
 
-faculty = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+
+faculty = faculty_list(10)
 digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 permcount = 999999

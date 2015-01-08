@@ -12,10 +12,10 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
 from __future__ import division
 
+from Euler import faculty_list
 
-faculty = [1, 1]
-for i in range(2, 10):
-    faculty.append(faculty[i-1]*i)
+
+faculty = faculty_list(10)
 
 
 # Range
