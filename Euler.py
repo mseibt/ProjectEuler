@@ -60,8 +60,8 @@ def generate_circulars(number):
     return circulars
 
 
-def palindromic_number(n):
-    return reverse_number(n) == n
+def palindromic_number(n, base=10):
+    return reverse_number(n, base) == n
 
 
 def prime_sieve(n):
@@ -82,9 +82,9 @@ def prime_numbers(limit):
     return [i for i, n in enumerate(prime_sieve(limit)) if n is False]
 
 
-def reverse_number(n):
+def reverse_number(n, base):
     rev = 0
     while n > 0:
-        rev = 10*rev + n % 10
-        n //= 10
+        rev = base*rev + n % base
+        n //= base
     return rev
