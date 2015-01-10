@@ -82,7 +82,7 @@ def prime_numbers(limit):
     return [i for i, n in enumerate(prime_sieve(limit)) if n is False]
 
 
-def reverse_number(n, base):
+def reverse_number(n, base=10):
     rev = 0
     while n > 0:
         rev = base*rev + n % base
