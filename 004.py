@@ -8,7 +8,7 @@ from the product of two 2-digit numbers is 9009 = 91 * 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 """
 
-from Euler import palindromic_number
+from Euler import palindromic_number, palindromic_string
 
 
 # Generate all products of 3-digit-numbers and add the element to the list
@@ -28,7 +28,7 @@ def e004a():
 def e004b():
     return (
         max([i * j for i in range(999, 100, -1) for j in range(990, 110, -11)
-             if str(i * j) == str(i * j)[::-1]])
+             if palindromic_string(str(i*j))])
     )
 
 

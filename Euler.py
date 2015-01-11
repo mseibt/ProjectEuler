@@ -64,6 +64,10 @@ def palindromic_number(n, base=10):
     return reverse_number(n, base) == n
 
 
+def palindromic_string(s):
+    return s == s[::-1]
+
+
 def prime_sieve(n):
     n += 1
     sieve = [False for i in range(n+1)]
