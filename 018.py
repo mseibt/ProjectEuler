@@ -30,15 +30,20 @@ triangle = [[int(number) for number in line.split()]
 # just add up the higher elements from the bottom to the top
 # this works since we don't have to know the exact route through the triangle
 # which gives the maximum
+# more mathematical: add the higher number of n.th row, m.th column and
+# n.th row, m.th + 1 column to n.th-1 row, m.th column
+# repeat until reached the first row
 def e018a():
     for row in range(len(triangle) - 1, 0, -1):
         for col in range(0, row):
-            triangle[row - 1][col] += max(triangle[row][col], triangle[row][col + 1])
+            triangle[row - 1][col] += max(
+                triangle[row][col], triangle[row][col + 1]
+            )
     return triangle[0][0]
 
 
-# If you start from top to bottom you have to take the maximum of the last row
-# Also accessing indices is a bit harder
+# if you start from top to bottom you have to take the maximum of the last row
+# also accessing indices is a bit harder
 def e018b():
     for row in range(len(triangle)-1):
         for col in range(len(triangle[row])):
@@ -47,7 +52,9 @@ def e018b():
             if col == len(triangle[row])-1:
                 triangle[row+1][col+1] += triangle[row][col]
             else:
-                triangle[row+1][col+1] += max(triangle[row][col], triangle[row][col+1])
+                triangle[row+1][col+1] += max(
+                    triangle[row][col], triangle[row][col+1]
+                )
     return max(triangle[-1])
 
 print(e018b())
